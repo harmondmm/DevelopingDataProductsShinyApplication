@@ -87,4 +87,17 @@ shinyServer(function(input, output) {
     output$pred2 <- renderText({
          model2pred()
     })
+    
+    output$Documentation <- renderText({
+        
+        "Documentation and How To
+        
+        This Shiny app enables you to select the speed which is used to determine the gear
+        which is used to determine the relationship between MPG and the speed/gear ratio.
+        
+        A simple linear model is developed based on the selected car speed/gear ratio.
+        
+        A MPG summary is displayed and the speed/gear ratio can be predicted by 
+        sliding the Speed of the car to the desired value."
+    })
 })

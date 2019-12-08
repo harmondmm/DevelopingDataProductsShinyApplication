@@ -23,18 +23,22 @@ shinyUI(fluidPage(
                         value = 10),
             checkboxInput("showModel1", "Show/Hide Model 1 (Red)", value = TRUE),
             checkboxInput("showModel2", "Show/Hide Model 2 (Blue)", value = TRUE),
-            submitButton("Submit")
+            submitButton("Submit"),
+            
+            h4("Model 1 - Predicted Miles Per Gallon based on Speed/Gear Ratio:"),
+            textOutput("pred1"),
+            
+            h4("Model 2 - Predicted Mile Per Gallon based on One Gear Upshift Speed/Gear Ratio:"),
+            textOutput("pred2")
+
         ),
 
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("Plot1"),
-            
-            h3("Model 1 - Predicted Miles Per Gallon based on Speed/Gear Ratio:"),
-            textOutput("pred1"),
-            
-            h3("Model 2 - Predicted Mile Per Gallon based on One Gear Upshift Speed/Gear Ratio:"),
-            textOutput("pred2")
+          tabsetPanel(
+            tabPanel("Plot", plotOutput("Plot1")),
+            tabPanel("Documentation", verbatimTextOutput("Documentation"))
+          )
         )
     )
   )
